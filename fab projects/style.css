@@ -1,0 +1,294 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Background images removed per request */
+    background: #000; /* solid fallback color */
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(22, 41, 56, 0.4) 0%, rgba(178, 211, 246, 0.3) 100%);
+    pointer-events: none;
+    z-index: 0;
+    animation: overlayShift 20s ease-in-out infinite;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Background shift animation */
+@keyframes bgShift {
+    0%, 100% { background-position: center top; }
+    50% { background-position: center bottom; }
+}
+
+/* Overlay color shift */
+@keyframes overlayShift {
+    0%, 100% { background: linear-gradient(135deg, rgba(22, 41, 56, 0.4) 0%, rgba(178, 211, 246, 0.3) 100%); }
+    50% { background: linear-gradient(225deg, rgba(30, 2, 60, 0.5) 0%, rgba(178, 211, 246, 0.2) 100%); }
+}
+
+
+/* ✨ HEADER ANIMATION */
+header {
+    background: linear-gradient(90deg, #b2d3f6 0%, #87ceeb 50%, #b2d3f6 100%);
+    background-size: 200% 100%;
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(22, 41, 56, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid rgba(22, 41, 56, 0.5);
+}
+
+@keyframes headerGradient {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+
+nav {
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 5px 8px;
+    transition: 0.3s;
+    
+}
+
+
+nav a:hover {
+    background-color: #1e023c;
+    border-radius: 5px;
+    color:  #b2d3f6;
+}
+
+
+footer {
+    margin-top: auto;
+    background-color: #b2d3f6;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Spotlight / reveal-on-spotlight styles */
+:root {
+    --spot-color: #00f7ff; /* default cyan highlight */
+    --spot-size: 420px;
+}
+
+body.spotlight-mode > * {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.reveal-on-spotlight {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(.995);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+}
+
+.reveal-on-spotlight.revealed {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none;
+    pointer-events: auto;
+    box-shadow: 0 12px 40px rgba(0, 247, 255, 0.08);
+}
+
+.spotlight {
+    position: fixed;
+    left: 50%;
+    top: -40%;
+    width: var(--spot-size);
+    height: var(--spot-size);
+    transform: translateX(-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    background: radial-gradient(circle at 35% 35%, rgba(0,247,255,0.95) 0%, rgba(0,247,255,0.65) 12%, rgba(0,247,255,0.18) 25%, rgba(0,247,255,0.06) 40%, rgba(0,247,255,0) 60%);
+    filter: blur(10px) saturate(1.2);
+    box-shadow: 0 0 80px var(--spot-color);
+}
+
+/* animation sequence: drop from top, pause around center, then exit */
+@keyframes spotMoveDown {
+    0% { top: -40%; opacity: 0; }
+    6% { opacity: 1; }
+    50% { top: 38%; opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 140%; opacity: 0; }
+}
+
+.spotlight.animate {
+    animation: spotMoveDown 2.2s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+/* small ripple under spotlight for neon feel */
+.spotlight::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 160px 40px rgba(0,247,255,0.06) inset;
+}
+
+/* ripple for buttons and inputs when revealed */
+.reveal-on-spotlight.revealed .btn,
+.reveal-on-spotlight.revealed input {
+    box-shadow: 0 6px 18px rgba(0,247,255,0.06);
+}
+
+/* hide any existing login-light element while spotlight runs */
+body.spotlight-mode .login-light {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Gallery image sizing */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 0;
+}
+
+.gallery img {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 760px) {
+    .gallery img {
+        width: 140px;
+    }
+}
+
+/* Fullscreen 3D background container (slice-style) */
+#bg3d {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Ensure main content stays above the background */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Page load fade/slide animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-onload {
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+/* Put footer visually behind the background */
+footer {
+    position: relative;
+    z-index: -1;
+}
+
+/* 3D / animated cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    perspective: 1100px;
+}
+
+.card {
+    position: relative;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 200px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.45s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s ease;
+    will-change: transform;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.card:hover::before { opacity: 1; }
+
+.card:hover {
+    transform: translateY(-12px) rotateX(6deg) rotateY(-6deg) scale(1.03);
+    box-shadow: 0 26px 56px rgba(0,0,0,0.22);
+}
+
+/* gentle floating animation used when JS adds class */
+@keyframes cardFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+.card.float {
+    animation: cardFloat 6s ease-in-out infinite;
+}
+

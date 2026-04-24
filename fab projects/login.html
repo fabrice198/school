@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'poppins', sans-serif;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: black;
+        overflow: hidden;
+    }
+    .login-box{
+        position: relative;
+        width: 400px;
+        height: 450px;
+        background: #191919;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h2{
+        font-size: 2em;
+        color: #fff;
+        text-align: center;
+    }
+    .input-box{
+        position: relative;
+        width: 310px;
+        margin: 30px 0;
+        border-bottom: 2px solid #fff;
+    }
+    .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1em;
+        pointer-events: none;
+        color: #fff;
+        transition: .5s;
+    }
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label{
+        top: -5px;
+    }
+    .input-box input{
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 1em;
+        padding: 0 35px 0 5px;
+    }
+    .input-box .icon{
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        color: #fff;
+    }
+.remember-forgot{
+    color: #fff;
+    font-size: 0.9em;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px;
+
+}
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+    float: right;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+button{
+    width: 30%;
+    height: 40px;
+    margin-left: 30px;
+    border: none;
+    outline: none;
+    color: #191919;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.register-link{
+    color: #fff;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register-link a p{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-link a p:hover{
+    text-decoration: underline;
+}
+        .login-light{
+            position: absolute;
+            top: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 10px;
+            background: var(--spot-color, #00f7ff);
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.6s ease, box-shadow 0.4s ease;
+            pointer-events: none;
+        }
+        .login-light::before{
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 420px;
+            height: 160px;
+            background: radial-gradient(ellipse at center, rgba(0,247,255,0.18) 0%, rgba(0,247,255,0.06) 40%, rgba(0,247,255,0) 70%);
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+        /* reveal the decorative light after the spotlight sequence */
+        .reveal-on-spotlight.revealed .login-light { opacity: 1; box-shadow: 0 8px 40px rgba(0,247,255,0.12); }
+</style>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="registration.html">Register</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+<main>
+
+<div class="login-box">
+    <form>
+        <div class="login-light"></div>
+        <h2>Login</h2>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+            <input type="text" required>
+            <label>Username</label>
+        </div>
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required>
+            <label>Password</label>
+        </div>
+        <div class="remember-forgot">
+            <label><input type="checkbox"> Remember me</label>
+            <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit">Login</button>
+        <button type="reset">Cancel</button>
+        <div class="register-link">
+            <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+    </form>
+</div>
+
+</main>
+
+    <footer>
+        <p>&copy; developed by l3sod team <br> last updated: <span id="date"></span></p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

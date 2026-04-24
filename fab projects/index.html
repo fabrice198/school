@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Internship</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 60px;
+    background: #f4f4f4;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background:  #162938;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.section {
+    text-align: center;
+    padding: 40px;
+    color:white;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    border: 1px solid #162938;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    background: #162938;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+</style>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" >Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="registration.html">Register</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<!-- ✅ ADD THIS MAIN CONTENT -->
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to School Internship Program</h1>
+        <p>Connecting students with real-world experience and career opportunities.</p>
+        <a href="registration.html" class="btn">Get Started</a>
+    </section>
+
+    <!-- How it works -->
+    <section class="section">
+        <h2>How It Works</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Register</h3>
+                <p>Create your account as a student.</p>
+            </div>
+            <div class="card">
+                <h3>Apply</h3>
+                <p>Choose internships that match your skills.</p>
+            </div>
+            <div class="card">
+                <h3>Learn</h3>
+                <p>Gain real experience in companies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="section">
+        <h2>Why Choose Us</h2>
+        <p>We help students gain practical skills, connect with companies, and prepare for future careers.</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; developed by l3sod team <br> last updated: <span id="date"></span></p>
+</footer>
+
+<!-- 3D background removed from this page -->
+
+<script>
+    document.getElementById("date").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

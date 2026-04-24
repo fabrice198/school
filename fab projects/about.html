@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - School Internship</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    *{
+        color:white;
+    }
+.card {
+    position: relative;
+    border: 1px solid #162938;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    background: #162938;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    color:white;
+    
+}
+
+</style>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="registration.html">Register</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Title -->
+        <section class="hero">
+            <h1>About Our Internship Program</h1>
+            <p>Helping students grow, learn, and succeed in their careers.</p>
+        </section>
+
+        <!-- Our Story -->
+        <section class="section">
+            <h2>Our Story</h2>
+            <p>
+                The School Internship Program was created to bridge the gap between
+                education and real-world experience. We noticed that many students
+                struggle to find opportunities to apply their knowledge in practical
+                environments.
+            </p>
+            <p>
+                Our platform connects students with companies, helping them gain
+                valuable skills and confidence for their future careers.
+            </p>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="section">
+            <h2>Our Mission</h2>
+            <p>
+                To empower students by providing meaningful internship opportunities,
+                enabling them to build professional networks and develop skills that
+                matter in today's job market.
+            </p>
+            <h2>Our Vision</h2>
+            <p>
+                To become a trusted platform where students and companies connect
+                to build the workforce of tomorrow.
+            </p>
+        </section>
+
+        <!-- Why We Exist -->
+        <section class="section">
+            <h2>Why We Exist</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Bridge the Gap</h3>
+                    <p>Connect education with real-world industry experience.</p>
+                </div>
+                <div class="card">
+                    <h3>Build Careers</h3>
+                    <p>Help students launch their professional journeys with confidence.</p>
+                </div>
+                <div class="card">
+                    <h3>Create Opportunities</h3>
+                    <p>Partner with companies to offer diverse internship opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section">
+            <h2>Our Team</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Team Member 1</h3>
+                    <p>Project Lead</p>
+                </div>
+                <div class="card">
+                    <h3>Team Member 2</h3>
+                    <p>Developer</p>
+                </div>
+                <div class="card">
+                    <h3>Team Member 3</h3>
+                    <p>Designer</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; developed by l3sod team <br> last updated: <span id="date"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        // add page load staggered animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const els = document.querySelectorAll('.hero, .section');
+            els.forEach((el, i) => {
+                setTimeout(() => el.classList.add('animate-onload'), i * 120);
+            });
+            document.getElementById('date').textContent = new Date().getFullYear();
+        });
+    </script>
+
+</body>
+</html>
