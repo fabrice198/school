@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currency company</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="back">
+
+        <h1>XYZ-COMPANY</h1>
+        <p>CURRENCY EXCHANGE PLATFORM</p>
+
+    </div>
+
+<div class="down">
+    
+</div>
+
+<div class="front">
+
+    <div class="inputs">
+        <div class="labels">
+        <label>Amount</label>
+        <label>From</label>
+        <label>To</label>
+        </div>
+        
+        <input type="number" id="aa" placeholder="Enter Amount">
+        <select id="from">
+            <option value="Rwanda-RWF" selected>Rwanda-RWF</option>
+            <option value="USD-$">USD-$</option>
+            <option value="EUR-€">EUR-€</option>
+            <option value="pound-£">Pound-£</option>
+        </select>
+
+        <select id="to">
+            <option value="Rwanda-RWF" selected>Rwanda-RWF</option>
+            <option value="USD-$">USD-$</option>
+            <option value="EUR-€">EUR-€</option>
+            <option value="pound-£">Pound-£</option>
+        </select>
+    </div>
+
+    <div class="result">
+        <button onclick="convert()">Convert</button>
+        <p>result<br><span id="answer"></span></p>
+    </div>
+</div>
+</body>
+<script>
+function convert() {
+
+try {
+    let amount = document.getElementById("aa").value;
+    let from = document.getElementById("from").value;
+    let to = document.getElementById("to").value;
+
+    if (amount === "" || amount <= 0) {
+        window.alert("Enter valid amount");
+        return false;
+    }
+
+    let rateFrom = (from === "Rwanda-RWF") ? 1 :
+               (from === "USD-$") ? 1300 :
+               (from === "EUR-€") ? 1400 :
+               1600;
+
+    let rateTo = (to === "Rwanda-RWF") ? 1 :
+             (to === "USD-$") ? 1300 :
+             (to === "EUR-€") ? 1400 :
+             1600;
+
+    let result = (amount * rateFrom) / rateTo;
+    if(to === "USD-$") {
+        result = result + " $";
+    } else if (to === "EUR-€") {
+        result = result + " €";
+    } else if (to === "pound-£") {
+        result = result + " £";
+    } else {
+        result = result + " RWF";
+    }
+    document.getElementById("answer").innerText = result;
+    
+} catch (error) {
+    window.alert("Some thing went wrong!!! try again later");
+}
+}
+</script>
+</html>
