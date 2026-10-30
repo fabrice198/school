@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $flash = get_flash();
 ?>
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login | SchoolLearn</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login | SchoolLearn</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/auth.css"></head>
 <body class="auth-page">
 <header class="navbar"><a href="index.php" class="logo"><span class="logo-icon">S</span>SchoolLearn</a><a href="register.php" class="register-btn">Create account</a></header>
 <main class="auth-wrap"><section class="auth-card">
