@@ -4,7 +4,7 @@ require_login();
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard | SchoolLearn</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dashboard | SchoolLearn</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/auth.css"></head>
 <body class="auth-page">
 <header class="navbar"><a href="index.php" class="logo"><span class="logo-icon">S</span>SchoolLearn</a><div class="nav-actions"><span class="welcome-name">Hello, <?= e($user['full_name']) ?></span><a href="logout.php" class="register-btn">Logout</a></div></header>
 <main class="dashboard-wrap">
